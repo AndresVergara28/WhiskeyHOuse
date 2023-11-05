@@ -37,10 +37,12 @@ header {
 
   .header-rigth-container {
     position: fixed;
+    z-index:  1;
     bottom: 2rem;
     right: 2rem;
     padding: 2rem;
     border-radius: 4rem;
+    border: 2px solid $color-gris-secundario;
     background-color: $color-naranja-principal;
     .cart-icon-container {
       img {
@@ -56,11 +58,15 @@ header {
         font-weight: bolder;
       }
 
-      &:hover{
+    }
+    &:hover{
+      border:2px solid $color-white;
+      .cart-icon-container{
         .quantity-added-container{
           color:$color-white;
         }
       }
+      
     }
   }
 }

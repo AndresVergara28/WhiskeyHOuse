@@ -50,10 +50,12 @@ header .header-left-container .navigation-bar .navigation-container li a:hover {
 }
 header .header-rigth-container {
   position: fixed;
+  z-index: 1;
   bottom: 2rem;
   right: 2rem;
   padding: 2rem;
   border-radius: 4rem;
+  border: 2px solid #6c757d;
   background-color: #8c5612;
 }
 header .header-rigth-container .cart-icon-container img {
@@ -68,7 +70,10 @@ header .header-rigth-container .cart-icon-container .quantity-added-container {
   color: #6c757d;
   font-weight: bolder;
 }
-header .header-rigth-container .cart-icon-container:hover .quantity-added-container {
+header .header-rigth-container:hover {
+  border: 2px solid #ffffff;
+}
+header .header-rigth-container:hover .cart-icon-container .quantity-added-container {
   color: #ffffff;
 }
 
@@ -101,7 +106,9 @@ header .header-rigth-container .cart-icon-container:hover .quantity-added-contai
   }
 }
 .carousel-container {
+  z-index: -1;
   height: 80vh;
+  width: 100%;
 }
 .carousel-container .carousel-item img {
   width: 100%;
