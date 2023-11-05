@@ -1,0 +1,11 @@
+{
+  "name": "proyectofinal",
+  "version": "1.0.0",
+  "description": "¡Bienvenido a TheWhiskeyHOuse en Línea! Somos tu destino virtual para encontrar una amplia y cuidadosamente seleccionada variedad de productos para adultos, que incluyen una exclusiva selección de licores, cigarrillos electrónicos y cigarrillos tradicionales.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

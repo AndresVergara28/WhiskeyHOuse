@@ -1,0 +1,63 @@
+.top3-headings-container {
+  background-color: $color-black;
+  .top3-subtitle {
+    margin: 5rem 0rem;
+    color: $color-gris-secundario;
+    font-size: $hipertitulo*1.5;
+    text-transform: uppercase;
+    font-weight: 350;
+
+   
+  }
+
+  .top3-heading-container {
+    .top3-item {
+      .top3-img {
+        width: $xxlg-size * 1.5;
+      }
+      .top3-header-title{
+        color: $color-gris-secundario;
+    }
+      &:hover {
+        .top3-header-title{
+            color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+
+/* TABLETS  MAX 1200PX */
+/* @media screen and (max-width: 1200px) {
+ 
+} */
+
+/* TABLETS MAX 996PX */
+/* @media screen and (max-width: 996px) {
+  header {
+    nav {
+      .desktop-nav {
+        display: none;
+      }
+      .menu {
+        display: block;
+        width: $xxlg-size;
+        cursor: pointer;
+      }
+    }
+  }
+} */
+
+/* MOBILES MAX 576PX */
+/* @media screen and (max-width: 576px) {
+  header {
+    .header-left {
+      a {
+        h1 {
+          display: none;
+        }
+      }
+    }
+  }
+} */
