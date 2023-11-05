@@ -254,11 +254,13 @@ header .header-rigth-container .cart-icon-container:hover .quantity-added-contai
 } */
 footer {
   color: white;
-  background-color: #000000;
+  border: 1px solid #6c757d;
+  background-color: #212529;
   margin-top: 10rem;
 }
 footer .footer-top {
   height: 50vh;
+  display: flex;
   align-items: center;
   padding: 0rem 3rem;
 }
@@ -308,14 +310,26 @@ footer .footer-bottom p {
 }
 
 @media screen and (max-width: 992px) {
+  footer .footer-top {
+    align-content: normal;
+  }
   footer .footer-top .navigation-container {
     justify-content: center;
   }
-  footer .footer-top .suscribe-container form h4 {
+  footer .footer-top .navigation-container .logo-container a img {
+    width: 12rem;
+  }
+  footer .footer-top .navigation-container .information-container h3 a {
     font-size: 3.2rem;
   }
+  footer .footer-top .navigation-container .information-container ul li a {
+    font-size: 1.68rem;
+  }
+  footer .footer-top .suscribe-container form h4 {
+    font-size: 2.4rem;
+  }
   footer .footer-top .suscribe-container form p {
-    font-size: 1.6rem;
+    font-size: 1.12rem;
   }
   footer .footer-bottom {
     border-top: 1px solid #6c757d;

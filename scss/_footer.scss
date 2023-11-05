@@ -1,10 +1,12 @@
 footer {
   color: white;
-  background-color: $color-black;
+  border: 1px solid $color-gris-secundario;
+  background-color: $color-gris-principal;
   margin-top: 10rem;
 
   .footer-top {
     height: 50vh;
+    display: flex;
     align-items: center;
     padding: 0rem 3rem;
 
@@ -72,33 +74,53 @@ footer {
 }
 
 @media screen and (max-width: 992px) {
-    footer {
-        .footer-top {
-          .navigation-container {
-           justify-content: center;
+  footer {
+    .footer-top {
+      align-content: normal;
+      .navigation-container {
+        justify-content: center;
+        .logo-container{
+          a{
+            img{
+              width: $xlg-size;
+            }
           }
-      
-          .suscribe-container {
-              form {
-                
-              h4 {
-                font-size: $titulo;
-              }
-              p {
-                font-size: $parrafo;
+        }
+        .information-container{
+          h3 {
+            a {
+              font-size: $titulo;
+            }
+          }
+          ul {
+            li {
+
+              a {
+                font-size: $subtitulo*0.7;
               }
             }
           }
         }
-      
-        .footer-bottom {
-          border-top: 1px solid $color-gris-secundario;
+      }
+
+      .suscribe-container {
+        form {
+          h4 {
+            font-size: $subtitulo;
+          }
           p {
-            font-size: $parrafo;
-            color: $color-gris-secundario;
-            padding: 2rem 0;
+            font-size: $parrafo*0.7;
           }
         }
       }
- 
+    }
+    .footer-bottom {
+      border-top: 1px solid $color-gris-secundario;
+      p {
+        font-size: $parrafo;
+        color: $color-gris-secundario;
+        padding: 2rem 0;
+      }
+    }
+  }
 }
