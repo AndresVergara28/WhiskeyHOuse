@@ -1,12 +1,13 @@
 header {
-  position: sticky;
   background-color: $color-gris-principal;
   border-bottom: 1px solid $color-gris-secundario;
+
+  align-items: center;
+
   .header-left-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
-
     .logo-container {
       img {
         cursor: pointer;
@@ -35,52 +36,39 @@ header {
     }
   }
 
-  .header-rigth-container {
+  .cart-icon-container {
     position: fixed;
-    z-index:  1;
-    bottom: 2rem;
-    right: 2rem;
-    padding: 2rem;
-    border-radius: 4rem;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 2rem;
     border: 2px solid $color-gris-secundario;
     background-color: $color-naranja-principal;
-    .cart-icon-container {
-      img {
-        cursor: pointer;
-        width: $md-size;
-      }
-      .quantity-added-container {
-        position: absolute;
-        top: 0.8rem;
-        right: 2rem;
-        font-size: $nota*1.5;
-        color: $color-gris-secundario;
-        font-weight: bolder;
-      }
-
+    cursor: pointer;
+    img {
+      width: $md-size;
     }
-    &:hover{
-      border:2px solid $color-white;
-      .cart-icon-container{
-        .quantity-added-container{
-          color:$color-white;
-        }
-      }
-      
+    .quantity-added-container {
+      position: absolute;
+      top: 30%;
+      right: 45%;
+      z-index: 5;
+      font-size: $nota * 1.2;
+      color: $color-white;
+      font-weight: bolder;
     }
   }
 }
-
 
 @media screen and (max-width: 768px) {
   header {
     .header-left-container {
       .logo-container {
         img {
-          width: $xxlg-size*0.8;
+          width: $xxlg-size * 0.8;
         }
       }
-  
+
       .navigation-bar {
         .navigation-container {
           li {
@@ -91,7 +79,6 @@ header {
         }
       }
     }
-    
   }
 }
 
@@ -108,7 +95,7 @@ header {
           width: $xlg-size;
         }
       }
-  
+
       .navigation-bar {
         .navigation-container {
           li {
@@ -119,10 +106,9 @@ header {
         }
       }
     }
-  
   }
 
-  .carousel{
+  .carousel {
     height: 85vh;
   }
 }

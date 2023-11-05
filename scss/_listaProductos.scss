@@ -1,0 +1,112 @@
+.content-products {
+
+  background-color: $color-gris-principal;
+  width: 100vw;
+  padding: 1rem;
+
+
+  h1 {
+    color: $color-gris-secundario;
+    font-size: $hipertitulo;
+    text-transform: uppercase;
+    padding: 1rem;
+    text-align: center;
+
+  }
+
+  .products-section-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 20px;
+    place-content: center;
+    padding-top: 40px;
+    .product-card {
+      width: 250px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: $color-gris-secundario 1px solid;
+      border-radius: 1rem;
+      z-index: 0;
+      margin-bottom: 1rem;
+      .product-card-image {
+        z-index: 0;
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      .product-card-information {
+        z-index: 0;
+        width: 100%;
+        padding: 1rem;
+        .product-name {
+          text-align: left;
+          padding: 0;
+          margin: 0;
+          font-size: $parrafo;
+          font-weight: bold;
+          color: $color-white;
+        }
+        .product-second-name {
+          text-align: left;
+          padding: 0;
+          margin: 0;
+          font-size: $parrafo;
+          font-weight: bold;
+          color: $color-white;
+        }
+        .product-category {
+   
+          font-size: $parrafo*0.8;
+          color: $color-gris-secundario;
+        }
+        .product-volume {
+        
+          font-size: $parrafo*0.8;
+          color: $color-gris-secundario;
+        }
+        .product-price {
+          
+          font-size: $parrafo;
+          color: $color-white;
+        }
+      }
+      .add-to-card-button {
+        cursor: pointer;
+        background-color: $color-naranja-principal;
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        width: 4rem;
+        height: 4rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 1px 1px 1px $color-gris-secundario;
+    
+      }
+
+      &:hover {
+        background-color: $color-gris-secundario;
+        .product-card-information {
+          .product-name {
+            color: $color-white;
+          }
+          .product-second-name {
+            color: $color-white;
+          }
+          .product-category {
+            color: $color-white;
+          }
+          .product-volume {
+            color: $color-white;
+          }
+          .product-price {
+            color: $color-white;
+          }
+        }
+      }
+    }
+  }
+}
