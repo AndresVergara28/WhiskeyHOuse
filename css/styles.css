@@ -14,20 +14,19 @@ html {
 }
 
 body {
+  position: relative;
   background-color: #212529;
 }
 
 header {
-  height: 20vh;
+  position: sticky;
   background-color: #212529;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   border-bottom: 1px solid #6c757d;
 }
 header .header-left-container {
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 header .header-left-container .logo-container img {
   cursor: pointer;
@@ -50,26 +49,21 @@ header .header-left-container .navigation-bar .navigation-container li a:hover {
   color: #ffffff;
 }
 header .header-rigth-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-header .header-rigth-container .login-icon-container img {
-  cursor: pointer;
-  width: 3.6rem;
-}
-header .header-rigth-container .cart-icon-container {
-  width: 5.6rem;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 2rem;
+  border-radius: 4rem;
+  background-color: #8c5612;
 }
 header .header-rigth-container .cart-icon-container img {
   cursor: pointer;
-  width: 3.6rem;
+  width: 4rem;
 }
 header .header-rigth-container .cart-icon-container .quantity-added-container {
   position: absolute;
-  top: -1.2rem;
-  right: 0.8rem;
+  top: 0.8rem;
+  right: 2rem;
   font-size: 1.2rem;
   color: #6c757d;
   font-weight: bolder;
@@ -84,20 +78,6 @@ header .header-rigth-container .cart-icon-container:hover .quantity-added-contai
   }
   header .header-left-container .navigation-bar .navigation-container li a {
     font-size: 2.08rem;
-  }
-  header .header-rigth-container .login-icon-container img {
-    width: 2.4rem;
-  }
-  header .header-rigth-container .cart-icon-container {
-    width: 5.6rem;
-  }
-  header .header-rigth-container .cart-icon-container img {
-    width: 2.4rem;
-  }
-  header .header-rigth-container .cart-icon-container .quantity-added-container {
-    top: -0.8rem;
-    right: 2.5rem;
-    font-size: 0.8rem;
   }
 }
 @media screen and (max-width: 576px) {
@@ -115,25 +95,6 @@ header .header-rigth-container .cart-icon-container:hover .quantity-added-contai
   }
   header .header-left-container .navigation-bar .navigation-container li a {
     font-size: 1.92rem;
-  }
-  header .header-rigth-container {
-    position: absolute;
-    top: 1.6rem;
-    align-self: flex-end;
-  }
-  header .header-rigth-container .login-icon-container img {
-    width: 2.4rem;
-  }
-  header .header-rigth-container .cart-icon-container {
-    width: 5.6rem;
-  }
-  header .header-rigth-container .cart-icon-container img {
-    width: 2.4rem;
-  }
-  header .header-rigth-container .cart-icon-container .quantity-added-container {
-    top: -0.8rem;
-    right: 3rem;
-    font-size: 0.8rem;
   }
   .carousel {
     height: 85vh;

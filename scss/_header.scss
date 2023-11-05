@@ -1,13 +1,11 @@
 header {
-  height: 20vh;
+  position: sticky;
   background-color: $color-gris-principal;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   border-bottom: 1px solid $color-gris-secundario;
   .header-left-container {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 
     .logo-container {
       img {
@@ -38,27 +36,21 @@ header {
   }
 
   .header-rigth-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    .login-icon-container {
-      img {
-        cursor: pointer;
-        width: $md-size * 0.9;
-      }
-    }
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 2rem;
+    border-radius: 4rem;
+    background-color: $color-naranja-principal;
     .cart-icon-container {
-      width: 5.6rem;
       img {
         cursor: pointer;
-        width: $md-size * 0.9;
+        width: $md-size;
       }
       .quantity-added-container {
         position: absolute;
-        top: -1.2rem;
-        right: 0.8rem;
-
+        top: 0.8rem;
+        right: 2rem;
         font-size: $nota*1.5;
         color: $color-gris-secundario;
         font-weight: bolder;
@@ -93,26 +85,7 @@ header {
         }
       }
     }
-    .header-rigth-container {
-      .login-icon-container {
-        img {
-          width: $md-size * 0.6;
-        }
-      }
-      .cart-icon-container {
-        width: 5.6rem;
-        img {
-          width: $md-size * 0.6;
-        }
-        .quantity-added-container {
-          top: -0.8rem;
-          right: 2.5rem;
-          font-size: $nota*1;
-      
-        }
-  
-      }
-    }
+    
   }
 }
 
@@ -140,29 +113,7 @@ header {
         }
       }
     }
-    .header-rigth-container {
-      position: absolute;
-      top: 1.6rem;
-      align-self: flex-end;
-      .login-icon-container {
-        img {
-          width: $md-size * 0.6;
-        }
-      }
-      .cart-icon-container {
-        width: 5.6rem;
-        img {
-          width: $md-size * 0.6;
-        }
-        .quantity-added-container {
-          top: -0.8rem;
-          right: 3rem;
-          font-size: $nota*1;
-      
-        }
   
-      }
-    }
   }
 
   .carousel{
