@@ -1,8 +1,10 @@
 
 const cartAside = document.querySelector('#cartAside');
-const cartIconBtn = document.querySelector('#cartIconBtn');
+const cartIconBtnApertura = document.querySelector('#cartIconBtnApt');
+const cartIconBtnCierre = document.querySelector('#cartIconBtnCie');
 
-cartIconBtn.addEventListener('click',toggleCartAside);
+cartIconBtnApertura.addEventListener('click',toggleCartAside);
+cartIconBtnCierre.addEventListener('click',toggleCartAside);
 
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
