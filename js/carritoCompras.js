@@ -19,7 +19,7 @@ function renderProducts(whiskeys) {
             </div>           
             `
         const addToCartImg = document.createElement('img');
-        addToCartImg.setAttribute('src', '../recursos/iconos/carrito.png');
+        addToCartImg.setAttribute('src', '../recursos/iconos/carritoMas.png');
         addToCartImg.setAttribute('id', `${whiskey.codigo}`);
         addToCartImg.classList.add('add-to-card-button');
         addToCartImg.addEventListener('click', addToContainerCart)

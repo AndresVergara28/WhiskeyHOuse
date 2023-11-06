@@ -1,16 +1,21 @@
 header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background-color: $color-gris-principal;
   border-bottom: 1px solid $color-gris-secundario;
 
   align-items: center;
 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   .header-left-container {
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
     .logo-container {
       img {
-        cursor: pointer;
         width: $xxlg-size;
       }
     }
@@ -22,7 +27,6 @@ header {
         li {
           color: $color-gris-secundario;
           list-style-type: none;
-
           a {
             color: $color-gris-secundario;
             font-size: $parrafo * 1.5;
@@ -37,21 +41,32 @@ header {
   }
 
   .cart-icon-container {
-    position: fixed;
-    top: 2rem;
-    right: 0;
-    padding: 1rem ;
-    border-radius: 2rem 0 0 2rem;
-    border: 2px solid $color-white;
-    background-color: $color-naranja-principal;
+    position: relative;
+    padding: 1rem;
+    border-radius: 2rem 2rem;
+    
     display: flex;
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
-    img {
-      width: $sm-size;
+
+    .quantity-container {
+      background-color: #ffffff;
+      color: #6c757d;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: -8px;
+      right: -4px;
+      font-size: 12px;
+      font-weight: bolder;
+      display: flex;
+      justify-content: center;
     }
-    
+    img {
+      width: $sm-size * 1.5;
+    }
   }
 }
 

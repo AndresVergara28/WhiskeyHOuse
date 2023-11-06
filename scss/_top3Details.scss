@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     margin-top: 5rem;
-
+    
     .featurette-details-container {
       display: flex;
       flex-direction: column;
@@ -18,8 +18,9 @@
         font-size: $parrafo;
       }
     }
-
+    
     .featurette-img-container {
+      height: 84vh;
       img {
         object-fit: cover;
         width: 100%;

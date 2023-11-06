@@ -20,17 +20,22 @@ body {
 }
 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background-color: #212529;
   border-bottom: 1px solid #6c757d;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 header .header-left-container {
   display: flex;
-  align-items: center;
   justify-content: space-around;
+  align-items: center;
 }
 header .header-left-container .logo-container img {
-  cursor: pointer;
   width: 16rem;
 }
 header .header-left-container .navigation-bar .navigation-container {
@@ -50,20 +55,30 @@ header .header-left-container .navigation-bar .navigation-container li a:hover {
   color: #ffffff;
 }
 header .cart-icon-container {
-  position: fixed;
-  top: 2rem;
-  right: 0;
+  position: relative;
   padding: 1rem;
-  border-radius: 2rem 0 0 2rem;
-  border: 2px solid #ffffff;
-  background-color: #8c5612;
+  border-radius: 2rem 2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
 }
+header .cart-icon-container .quantity-container {
+  background-color: #ffffff;
+  color: #6c757d;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  font-size: 12px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+}
 header .cart-icon-container img {
-  width: 2rem;
+  width: 3rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -174,6 +189,9 @@ header .cart-icon-container img {
 }
 .top3-details-container .featurette .featurette-details-container p {
   font-size: 1.6rem;
+}
+.top3-details-container .featurette .featurette-img-container {
+  height: 84vh;
 }
 .top3-details-container .featurette .featurette-img-container img {
   object-fit: cover;
@@ -310,7 +328,7 @@ footer .footer-bottom p {
   width: 35vw;
   height: 100vh;
   padding: 1.5rem 2.5rem;
-  z-index: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
 }
