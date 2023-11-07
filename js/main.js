@@ -1,17 +1,19 @@
 
-const cartAside = document.querySelector('#cartAside');
-const cartIconBtnApertura = document.querySelector('#cartIconBtnApt');
-const cartIconBtnCierre = document.querySelector('#cartIconBtnCie');
-const quantityValueIcon = document.querySelector('#quantity-value-icon');
+/* INDEX.HTML*/
+const quanValueIcoIndex = document.getElementById('quantity-value-icon-index');
+const cartAsideProd = document.getElementById('cart-aside-product');
+const cartAsideApeProd = document.getElementById('cart-aside-ope-product');
+const cartAsideCieProd = document.getElementById('cart-aside-cie-product');
 
-cartIconBtnApertura.addEventListener('click',toggleCartAside);
-cartIconBtnCierre.addEventListener('click',toggleCartAside);
+cartAsideApeProd.addEventListener('click',toggleCartAsideProduct);
+cartAsideCieProd.addEventListener('click',toggleCartAsideProduct);
 
-function toggleCartAside() {
-    cartAside.classList.toggle('inactive');
+function toggleCartAsideProduct() {
+    cartAsideProd.classList.toggle('inactive');
     
 }
 
+console.log(localStorage.carritoCompras);
 
 
 

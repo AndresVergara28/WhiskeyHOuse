@@ -38,7 +38,8 @@ function getIndex(el) {
 }
 
 function actualizarCantIcon(cantidad) {
-    quantityValueIcon.innerText = `${cantidad}`;
+    document.getElementById('quantity-value-icon-product').innerText = cantidad;
+   
 }
 
 function actualizarTotal(valor) {
