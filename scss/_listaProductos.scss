@@ -3,6 +3,7 @@
   width: 100vw;
   padding: 1rem;
   h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: $color-gris-secundario;
     font-size: $hipertitulo;
     text-transform: uppercase;
@@ -12,17 +13,18 @@
   }
   .products-section-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 320px);
+    grid-template-columns: repeat(auto-fill, 200px);
     gap: 20px;
     place-content: center;
     padding-top: 2rem;
     .product-card {
       background-color: $color-gris-principal;
-      box-shadow: 2px 1px 1px $color-amarillo-principal;
+      box-shadow: 1px 1px 1px $color-amarillo-principal;
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-items: center;
       border: $color-gris-secundario 1px solid;
       border-radius: 1rem;
       z-index: 0;
@@ -30,6 +32,7 @@
       .product-card-image {
         z-index: -4;
         width: 100%;
+
         img {
           width: 100%;
         }
@@ -55,17 +58,20 @@
           color: $color-white;
         }
         .product-category {
-   
+          padding: 0;
+          margin: 0;
           font-size: $parrafo*0.8;
           color: $color-gris-secundario;
         }
         .product-volume {
-        
+          padding: 0;
+          margin: 0;
           font-size: $parrafo*0.8;
           color: $color-gris-secundario;
         }
         .product-price {
-          
+          padding: 0;
+          margin: 0;
           font-size: $parrafo;
           color: $color-white;
         }
@@ -109,12 +115,26 @@
 }
 
 
-@media screen and (max-width:$small) {
+@media screen and (max-width:$medium) {
   .content-products {
     h1 {
       font-size: $subtitulo;  
     }
     .products-section-container{
+      grid-template-columns: repeat(auto-fill, 165px);
+      padding-top: 1rem;
+    }
+    
+  }
+  
+  
+}
+
+
+@media screen and (max-width:$small) {
+  .content-products {
+    .products-section-container{
+      grid-template-columns: repeat(auto-fill, 165px);
       padding-top: 1rem;
     }
     

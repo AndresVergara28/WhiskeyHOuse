@@ -37,6 +37,10 @@ function getIndex(el) {
     }
 }
 
+function actualizarCantIcon(cantidad) {
+    quantityValueIcon.innerText = `${cantidad}`;
+}
+
 function actualizarTotal(valor) {
     totalDisplay.innerText = valor + ' COP';
 }
@@ -67,10 +71,11 @@ function addToContainerCart(e) {
         renderizarEnCarrito(itemAñadido);
         localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
         const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+        const newCantIcon = carritoCompras.length;
+        actualizarCantIcon(newCantIcon);
         actualizarTotal(newTotalFactura);
+
     } else {
-
-
         const position = getIndex(whiskey);
         carritoCompras[position].total += carritoCompras[position].price;
         carritoCompras[position].count++;
@@ -187,6 +192,8 @@ function renderizarEnCarrito(el) {
 
 for (let index = 0; index < carritoCompras.length; index++) {
     const product = carritoCompras[index];
+    const newCantIcon = carritoCompras.length;
+    actualizarCantIcon(newCantIcon);
     renderizarEnCarrito(product);
     const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
     actualizarTotal(newTotalFactura);
@@ -238,6 +245,8 @@ function reducirCantidad(e) {
             contenedorInDOm.remove();
             carritoCompras.splice(position, 1);
             localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
+            const newCantIcon = carritoCompras.length;
+            actualizarCantIcon(newCantIcon);
             return;
         };
         const newQuantity = carritoCompras[position].count;

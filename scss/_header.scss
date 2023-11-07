@@ -95,8 +95,6 @@ header {
 @media screen and (max-width: $small) {
   header {
     height: 15vh;
-    display: flex;
-    flex-direction: column-reverse;
     align-items: center;
     .header-left-container {
       align-self: center;
