@@ -1,13 +1,7 @@
 const quanValueIcoIndex = document.getElementById("quantity-value-icon-index");
-const cartAsideCom = document.getElementById("cart-aside-component");
-const cartAsideApe = document.getElementById("cart-aside-ope");
-const cartAsideCie = document.getElementById("cart-aside-cie");
-
-const productCardContainerCart = document.querySelector("#carrito-de-compras");
 const totalDisplay = document.querySelector("#total_display");
+const productCardContainerCart = document.querySelector("#carrito-de-compras");
 
-cartAsideApe.addEventListener("click", toggleCartAsideProduct);
-cartAsideCie.addEventListener("click", toggleCartAsideProduct);
 const carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
 quanValueIcoIndex.innerText = carritoCompras.length;
 totalDisplay.innerText =
@@ -35,30 +29,26 @@ function actualizarTotal(valor) {
   totalDisplay.innerText = valor + " COP";
 }
 
-function toggleCartAsideProduct() {
-  cartAsideCom.classList.toggle("inactive");
-}
-
 function renderizarEnCarrito(el) {
   /*    <div class="product-card">
-       <div class="product-card-image">
-           <img src="../recursos/imagenes/deluxe12años1000.png" alt="">
-       </div>
-       <div class="product-card-information-container">
-           <div class="product-card-information">
-               <h3 class="product-name">Bucanas</h3>
-               <h3 class="product-second-name">Deluxe 12 años</h3>
-               <h4 class="product-category">Whiskey</h4>
-               <p class="product-volume">750ml</p>
-               <p class="product-price">150000 COP</p>
-           </div>
-           <div class="product-card-modificar">
-               <p class="restar">-</p>
-               <p class="cantidad">X</p>
-               <p class="sumar">+</p>
-           </div>
-       </div>
-   </div> */
+         <div class="product-card-image">
+             <img src="../recursos/imagenes/deluxe12años1000.png" alt="">
+         </div>
+         <div class="product-card-information-container">
+             <div class="product-card-information">
+                 <h3 class="product-name">Bucanas</h3>
+                 <h3 class="product-second-name">Deluxe 12 años</h3>
+                 <h4 class="product-category">Whiskey</h4>
+                 <p class="product-volume">750ml</p>
+                 <p class="product-price">150000 COP</p>
+             </div>
+             <div class="product-card-modificar">
+                 <p class="restar">-</p>
+                 <p class="cantidad">X</p>
+                 <p class="sumar">+</p>
+             </div>
+         </div>
+     </div> */
 
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
@@ -69,7 +59,7 @@ function renderizarEnCarrito(el) {
   /* Creando img src ='' class ='product-image' */
   const imgCarrito = document.createElement("img");
   imgCarrito.classList.add("product-image");
-  imgCarrito.setAttribute("src", el.image.slice(3));
+  imgCarrito.setAttribute("src", el.image);
   /* Agregando la imagen al div class = 'product-card-image' */
   divProductCartImage.appendChild(imgCarrito);
   /* --------------------------------------- */
@@ -194,11 +184,3 @@ function agregarCantidad(e) {
 function actualizarCantIcon(cantidad) {
   document.getElementById("quantity-value-icon-index").innerText = cantidad;
 }
-
-/* btnCalcularEdad.addEventListener('click',calculaEdad)
-
-function calculaEdad(name,apellido,edad) {
-    console.log(inpNombre.value);
-    console.log(inpApellido.value);    
-}
- */

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bienvenido a TheWhiskeyHOuse, tu destino en línea para encontrar una amplia selección de licores, cigarrillos electrónicos y cigarrillos tradicionales. Descubre nuestras ofertas exclusivas y disfruta de la mejor calidad en productos para adultos. ¡Visítanos ahora y encuentra tus favoritos!"
+    />
+    <title>TheWhiskeyHOuse: Resumen Compra</title>
+    <link
+      rel="shortcut icon"
+      href="../recursos/logos/WhiskeyGlassIcon-NoBck.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body>
+    <header class="container-fluid">
+      <div class="header-left-container">
+        <div class="logo-container">
+          <img
+            src="../recursos/logos/TheWhiskeyHOuseLogo-WhiteLetter-NoBck.png"
+            alt="Logo TheWhiskeyHouse"
+            class="logo-icon"
+          />
+        </div>
+        <nav class="navigation-bar">
+          <ul class="navigation-container">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="product.html">Productos</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="cart-icon-container" id="cart-aside-ope">
+        <img
+          src="../recursos/iconos/carrito.png"
+          alt="Icono carrito de compra"
+        />
+        <p class="quantity-container" id="quantity-value-icon-index">0</p>
+      </div>
+    </header>
+    <main class="container-fluid">
+      <section class="row resumen-compras-container">
+        <div class="col-lg-7 col-md-12 payment-summary">
+          <h1>finalizar compra</h1>
+          <div class="contact-info">
+            <h2>Información de Contacto</h2>
+            <form action="">
+              <label for="name">
+                <input type="text" name="name" id="name" placeholder="Nombre" />
+              </label>
+              <label for="family-name">
+                <input
+                  type="text"
+                  name="last-name"
+                  id="last-name"
+                  placeholder="Apellido"
+                />
+              </label>
+              <label for="phone">
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  placeholder="+57 (320)-345-5678"
+                />
+              </label>
+              <label for="email" class="email-label">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="alguien123@ejemplo.com"
+                />
+              </label>
+            </form>
+          </div>
+
+          <div class="delivery-info">
+            <h2>Información de envío</h2>
+            <form>
+              <label for="departamento">
+                <input
+                  type="departamento"
+                  name="departamento"
+                  id="departamento"
+                  placeholder="Atlantico"
+                />
+              </label>
+              <label for="address" class="direccion-envio">
+                <input
+                  type="text"
+                  name="address"
+                  id="address"
+                  placeholder="Cra 1 # 3-50"
+                />
+              </label>
+            </form>
+          </div>
+
+          <div class="payment-info">
+            <h2>Método de pago</h2>
+            <form action="">
+              <label for="">
+                <input type="text" />
+              </label>
+            </form>
+          </div>
+        </div>
+        <aside class="col-lg-5 col-md-12 purchase-summary">
+          <div class="cart-header">
+            <h3>Resumen de articulos</h3>
+          </div>
+
+          <div class="products-section-container" id="carrito-de-compras">
+           <!--  <div class="product-card">
+              <div class="product-card-image">
+                <img src="../recursos/imagenes/deluxe12años1000.png" alt="" />
+              </div>
+              <div class="product-card-information-container">
+                <div class="product-card-information">
+                  <h3 class="product-name">Bucanas</h3>
+                  <h3 class="product-second-name">Deluxe 12 años</h3>
+                  <h4 class="product-category">Whiskey</h4>
+                  <p class="product-volume">750ml</p>
+                  <p class="product-price">150000 COP</p>
+                </div>
+                <div class="product-card-modificar">
+                  <p class="restar">-</p>
+                  <p class="cantidad">X</p>
+                  <p class="sumar">+</p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="discount-container">
+            <label for="coupon" class="label">
+              <input
+                type="text"
+                name="nombre"
+                id="coupon"
+                placeholder="Codigo de descuento"
+              />
+              <button>USAR</button>
+            </label>
+          </div>
+
+          <div class="total-display-container">
+            <p class="total-title">TOTAL</p>
+            <p class="total-valor" id="total_display">0 COP</p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="container-fluid">
+      <div class="row footer-top">
+        <div class="col-lg-7 col-md-12 navigation-container">
+          <div class="logo-container">
+            <a class="navbar-brand" href="../index.html">
+              <img
+                src="../recursos/logos/TheWhiskeyHOuseFavicon.svg"
+                alt="Logo TheWhiskeyHouse"
+                class="logo-icon-footer"
+              />
+            </a>
+          </div>
+          <div class="information-container">
+            <h3><a href="">TheWhiskeyHOuse</a></h3>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="product.html">Productos</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-12 suscribe-container">
+          <form>
+            <h4>Subscribe to our newsletter</h4>
+            <p>Monthly digest of what's new and exciting from us.</p>
+            <div class="d-flex flex-column flex-sm-row gap-2">
+              <label for="newsletter1" class="visually-hidden"
+                >Email address</label
+              >
+              <input
+                id="newsletter1"
+                type="text"
+                class="form-control"
+                placeholder="Email address"
+              />
+              <button class="btn btn-secondary" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="d-flex footer-bottom justify-content-center">
+        <p>&copy; 2023 Company, Inc. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/finalizaCompra.js"></script>
+  </body>
+</html>

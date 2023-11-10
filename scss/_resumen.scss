@@ -1,0 +1,267 @@
+.resumen-compras-container {
+  display: flex;
+
+  .payment-summary {
+    color: $color-gris-secundario;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 3rem;
+    gap: 2rem;
+
+    h1 {
+      text-align: start;
+      font-size: $titulo;
+      text-transform: capitalize;
+      color: $color-gris-secundario;
+    }
+
+    .contact-info {
+      h2 {
+        font-size: $subtitulo;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        label {
+          input {
+            min-width: 200px;
+            border: $color-gris-secundario 1px solid;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: $parrafo * 0.8;
+            font-size: $parrafo;
+          }
+        }
+
+        .email-label {
+          input {
+            width: 320px;
+          }
+        }
+      }
+    }
+
+    .delivery-info {
+      h2 {
+        font-size: $subtitulo;
+      }
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        label {
+          input {
+            width: 300px;
+            border: $color-gris-secundario 1px solid;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: $parrafo;
+          }
+        }
+      }
+    }
+
+    .payment-info {
+      h2 {
+        font-size: $subtitulo;
+      }
+      label {
+        input {
+          width: 300px;
+          border: $color-gris-secundario 1px solid;
+          border-radius: 0.5rem;
+          padding: 0.5rem 1rem;
+          font-size: $parrafo;
+        }
+      }
+    }
+  }
+
+  .purchase-summary {
+    padding: 1rem 3rem;
+    background-color: $color-black;
+    min-height: 80vh;
+    .cart-header {
+      text-align: start;
+
+      h3 {
+        font-size: $titulo;
+        text-transform: capitalize;
+        padding: 0rem 1rem 1.5rem 1rem;
+        color: $color-gris-secundario;
+      }
+    }
+
+    .products-section-container {
+      padding-bottom: 1rem;
+      .product-card {
+        display: flex;
+        align-items: center;
+        border: $color-gris-secundario 1px solid;
+        border-radius: 1rem;
+        .product-card-image {
+          img {
+            width: $xlg-size * 0.8;
+          }
+        }
+        .product-card-information-container {
+          display: flex;
+          width: 100%;
+          margin-right: 1rem;
+          justify-content: space-between;
+          .product-card-information {
+            padding: 1rem 1rem 1rem 0rem;
+            .product-name {
+              text-align: left;
+              padding: 0;
+              margin: 0;
+              font-size: $parrafo;
+              font-weight: bold;
+              color: $color-white;
+            }
+            .product-second-name {
+              text-align: left;
+              padding: 0;
+              margin: 0;
+              font-size: $parrafo;
+              font-weight: bold;
+              color: $color-white;
+            }
+            .product-category {
+              padding: 0;
+              margin: 0;
+              font-size: $parrafo * 0.9;
+              color: $color-gris-secundario;
+            }
+            .product-volume {
+              padding: 0;
+              margin: 0;
+              font-size: $nota * 1.4;
+              color: $color-gris-secundario;
+            }
+            .product-price {
+              padding: 0;
+              margin: 0;
+              font-size: $parrafo;
+              color: $color-white;
+            }
+          }
+
+          .product-card-modificar {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            .sumar,
+            .restar {
+              margin: 0;
+              cursor: pointer;
+              width: 3rem;
+              height: 3rem;
+              border-radius: 0.5rem;
+              text-align: center;
+              background-color: $color-gris-secundario;
+              color: $color-white;
+              font-size: $parrafo;
+              font-weight: bolder;
+              border: 1px solid $color-white;
+            }
+            .cantidad {
+              font-size: $parrafo;
+              font-family: serif;
+              color: $color-white;
+              padding: 1rem 1rem 0.2rem 1rem;
+              /* margin-top: 1rem; */
+            }
+          }
+        }
+
+        &:hover {
+          background-color: $color-gris-secundario;
+          border: 1px solid $color-white;
+          .product-card-information-container {
+            .product-card-information {
+              .product-name {
+                color: $color-white;
+              }
+              .product-second-name {
+                color: $color-white;
+              }
+              .product-category {
+                color: $color-white;
+              }
+              .product-volume {
+                color: $color-white;
+              }
+              .product-price {
+                color: $color-white;
+              }
+            }
+            .product-card-modificar {
+              .cantidad {
+                color: $color-white;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .discount-container {
+      padding: 0rem 0rem 1rem 0rem;
+      width: 100%;
+      .label {
+        display: grid;
+        grid-template-columns: 3fr 0.5fr;
+        gap: 1rem;
+
+        input {
+          border: $color-gris-secundario 1px solid;
+          border-radius: 0.5rem;
+          padding: 0.5rem 1rem;
+          font-size: $parrafo * 0.8;
+        }
+
+        button {
+          border: $color-gris-secundario 1px solid;
+          border-radius: 0.5rem;
+          padding: 0.5rem 1rem;
+          font-size: $parrafo * 0.8;
+          font-weight: bolder;
+        }
+      }
+    }
+
+    .total-display-container {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      background-color: $color-black;
+      width: 100%;
+      color: $color-white;
+      border: $color-gris-secundario 1px solid;
+      border-radius: 1rem;
+      .total-title {
+        margin: 0;
+        font-size: $parrafo;
+        font-weight: bold;
+      }
+      .total-valor {
+        margin: 0;
+        font-size: $parrafo;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media  screen and (max-width: $large) {
+  .resumen-compras-container{
+    .payment-summary{
+      order: 2;
+    }
+  }
+}

@@ -9,5 +9,17 @@
       height: 80vh;
       object-fit: cover;
     }
+
+    .container{
+      .carousel-caption{
+        h1{
+          font-size: $titulo;
+        }
+        p{
+          font-size: $parrafo;
+        }
+      }
+
+    }
   }
 }
