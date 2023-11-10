@@ -23,15 +23,15 @@ whiskeys.push(new Producto(5, 'Buchanas', 'Special reserve', 'Whiskey', '750 ml'
 whiskeys.push(new Producto(6, 'Buchanas', 'Deluxe 12 años', 'Whiskey', '375 ml', 82000, '../recursos/imagenes/deluxe12años375.png'));
 whiskeys.push(new Producto(7, 'Buchanas', 'Red Seal', 'Whiskey', '750 ml', 800000, '../recursos/imagenes/redSealBlended750.png'));
 
-const carritoCompras =[];
+const carritoCompras =JSON.parse(localStorage.getItem('carritoCompras')) || [];
 
 
-const objetoInStorage = JSON.parse(localStorage.carritoCompras);
+/* const objetoInStorage = JSON.parse(localStorage.carritoCompras);
 for (let index = 0; index < objetoInStorage.length; index++) {
     const element = objetoInStorage[index];
     carritoCompras.push(element);
     
-};
+}; */
 
 
 

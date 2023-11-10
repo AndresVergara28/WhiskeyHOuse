@@ -2,48 +2,18 @@ const quanValueIcoIndex = document.getElementById("quantity-value-icon-index");
 const cartAsideProd = document.getElementById("cart-aside-product");
 const cartAsideApeProd = document.getElementById("cart-aside-ope-product");
 const cartAsideCieProd = document.getElementById("cart-aside-cie-product");
+const productCardContainerCart = document.querySelector("#carrito-de-compras");
+const totalDisplay = document.querySelector("#total_display");
 
 cartAsideApeProd.addEventListener("click", toggleCartAsideProduct);
 cartAsideCieProd.addEventListener("click", toggleCartAsideProduct);
+const carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
+quanValueIcoIndex.innerText = carritoCompras.length;
+totalDisplay.innerText =
+  carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0) + " COP";
 
-for (const whiskey of whiskeys) {
-  const productCard = document.createElement("div");
-  productCard.classList.add("product-card");
-  productCard.innerHTML = `
-                <div class="product-card-image">
-                        <img src=${whiskey.image} alt="Imagen referencia de ${whiskey.category}" class="product-image">
-                </div>
-                <div class="product-card-information">
-                        <h3 class="product-name">${whiskey.name}</h3>
-                        <h3 class="product-second-name">${whiskey.secondName}</h3>
-                        <h4 class="product-category">${whiskey.category}</h4>
-                        <p class="product-volume">${whiskey.volume}</p>
-                        <p class="product-price">${whiskey.price} COP</p>
-                </div>           
-                `;
-  const addToCartImg = document.createElement("img");
-  addToCartImg.setAttribute("src", "../recursos/iconos/carritoMas.png");
-  addToCartImg.setAttribute("id", `${whiskey.codigo}`);
-  addToCartImg.classList.add("add-to-card-button");
-  addToCartImg.addEventListener("click", addToContainerCart);
-  productCardContainerList.appendChild(productCard);
-  productCard.appendChild(addToCartImg);
-}
-
-for (let index = 0; index < carritoCompras.length; index++) {
-  const product = carritoCompras[index];
-  const newCantIcon = carritoCompras.length;
-  actualizarCantIcon(newCantIcon);
-  renderizarEnCarrito(product);
-  const newTotalFactura = carritoCompras.reduce(
-    (acumulador, el) => acumulador + el.total,
-    0
-  );
-  actualizarTotal(newTotalFactura);
-}
-
-function toggleCartAsideProduct() {
-  cartAsideProd.classList.toggle("inactive");
+for (const el of carritoCompras) {
+  renderizarEnCarrito(el);
 }
 
 function getIndex(el) {
@@ -54,93 +24,40 @@ function getIndex(el) {
     }
   }
 }
-
-function actualizarCantIcon(cantidad) {
-  document.getElementById("quantity-value-icon-product").innerText = cantidad;
+function actualizarCant(quantity, total, codigo) {
+  const quantityOut = document.getElementById(`quantity_product_${codigo}`);
+  const totalOut = document.getElementById(`total_product_${codigo}`);
+  quantityOut.innerText = quantity;
+  totalOut.innerText = total + " COP";
 }
-
 function actualizarTotal(valor) {
   totalDisplay.innerText = valor + " COP";
 }
 
-function addToContainerCart(e) {
-  const codigo = parseInt(e.target.id);
-  const isThisInCart = carritoCompras.find((el) => el.codigo === codigo)
-    ? true
-    : false;
-  const whiskey = whiskeys.find((el) => el.codigo === codigo);
-
-  if (!isThisInCart) {
-    const itemAñadido = {
-      codigo: whiskey.codigo,
-      name: whiskey.name,
-      secondName: whiskey.secondName,
-      category: whiskey.category,
-      price: whiskey.price,
-      volume: whiskey.volume,
-      image: whiskey.image,
-      count: 1,
-      total: whiskey.price,
-    };
-    carritoCompras.push(itemAñadido);
-    Swal.fire(
-      "¡Añadido al Carrito!",
-      `${itemAñadido.name} ${itemAñadido.secondName} ${itemAñadido.volume}`,
-      "success"
-    );
-    renderizarEnCarrito(itemAñadido);
-    localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
-    const newTotalFactura = carritoCompras.reduce(
-      (acumulador, el) => acumulador + el.total,
-      0
-    );
-    const newCantIcon = carritoCompras.length;
-    actualizarCantIcon(newCantIcon);
-    actualizarTotal(newTotalFactura);
-  } else {
-    const position = getIndex(whiskey);
-    carritoCompras[position].total += carritoCompras[position].price;
-    carritoCompras[position].count++;
-    localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
-    const newCantidad = carritoCompras[position].count;
-    const newTotal = carritoCompras[position].total;
-    const newTotalFactura = carritoCompras.reduce(
-      (acumulador, el) => acumulador + el.total,
-      0
-    );
-    actualizarTotal(newTotalFactura);
-    actualizarCant(newCantidad, newTotal, codigo);
-    return;
-  }
-
-  function actualizarCant(quantity, total, codigo) {
-    const quantityOut = document.getElementById(`quantity_product_${codigo}`);
-    const totalOut = document.getElementById(`total_product_${codigo}`);
-    quantityOut.innerText = quantity;
-    totalOut.innerText = total + " COP";
-  }
+function toggleCartAsideProduct() {
+  cartAsideProd.classList.toggle("inactive");
 }
 
 function renderizarEnCarrito(el) {
   /*    <div class="product-card">
-     <div class="product-card-image">
-         <img src="../recursos/imagenes/deluxe12años1000.png" alt="">
-     </div>
-     <div class="product-card-information-container">
-         <div class="product-card-information">
-             <h3 class="product-name">Bucanas</h3>
-             <h3 class="product-second-name">Deluxe 12 años</h3>
-             <h4 class="product-category">Whiskey</h4>
-             <p class="product-volume">750ml</p>
-             <p class="product-price">150000 COP</p>
-         </div>
-         <div class="product-card-modificar">
-             <p class="restar">-</p>
-             <p class="cantidad">X</p>
-             <p class="sumar">+</p>
-         </div>
-     </div>
- </div> */
+       <div class="product-card-image">
+           <img src="../recursos/imagenes/deluxe12años1000.png" alt="">
+       </div>
+       <div class="product-card-information-container">
+           <div class="product-card-information">
+               <h3 class="product-name">Bucanas</h3>
+               <h3 class="product-second-name">Deluxe 12 años</h3>
+               <h4 class="product-category">Whiskey</h4>
+               <p class="product-volume">750ml</p>
+               <p class="product-price">150000 COP</p>
+           </div>
+           <div class="product-card-modificar">
+               <p class="restar">-</p>
+               <p class="cantidad">X</p>
+               <p class="sumar">+</p>
+           </div>
+       </div>
+   </div> */
 
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
@@ -151,7 +68,7 @@ function renderizarEnCarrito(el) {
   /* Creando img src ='' class ='product-image' */
   const imgCarrito = document.createElement("img");
   imgCarrito.classList.add("product-image");
-  imgCarrito.setAttribute("src", el.image);
+  imgCarrito.setAttribute("src", el.image.slice(3));
   /* Agregando la imagen al div class = 'product-card-image' */
   divProductCartImage.appendChild(imgCarrito);
   /* --------------------------------------- */
@@ -215,33 +132,6 @@ function renderizarEnCarrito(el) {
   productCardContainerCart.appendChild(productCard);
 }
 
-function actualizarCant(quantity, total, codigo) {
-  const quantityOut = document.getElementById(`quantity_product_${codigo}`);
-  const totalOut = document.getElementById(`total_product_${codigo}`);
-  quantityOut.innerText = quantity;
-  totalOut.innerText = total + " COP";
-}
-
-function agregarCantidad(e) {
-  e.preventDefault();
-  const codigo = Number(e.target.id.slice(8));
-  const item = carritoCompras.find((el) => el.codigo === codigo);
-  const position = getIndex(item);
-
-  carritoCompras[position].total += carritoCompras[position].price;
-  carritoCompras[position].count++;
-  localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
-
-  const newQuantity = carritoCompras[position].count;
-  const newTotal = carritoCompras[position].total;
-  const newTotalFactura = carritoCompras.reduce(
-    (acumulador, el) => acumulador + el.total,
-    0
-  );
-  actualizarCant(newQuantity, newTotal, codigo);
-  actualizarTotal(newTotalFactura);
-}
-
 function reducirCantidad(e) {
   e.preventDefault();
   const codigo = Number(e.target.id.slice(8));
@@ -279,3 +169,35 @@ function reducirCantidad(e) {
     actualizarTotal(newTotalFactura);
   }
 }
+
+function agregarCantidad(e) {
+  e.preventDefault();
+  const codigo = Number(e.target.id.slice(8));
+  const item = carritoCompras.find((el) => el.codigo === codigo);
+  const position = getIndex(item);
+
+  carritoCompras[position].total += carritoCompras[position].price;
+  carritoCompras[position].count++;
+  localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
+
+  const newQuantity = carritoCompras[position].count;
+  const newTotal = carritoCompras[position].total;
+  const newTotalFactura = carritoCompras.reduce(
+    (acumulador, el) => acumulador + el.total,
+    0
+  );
+  actualizarCant(newQuantity, newTotal, codigo);
+  actualizarTotal(newTotalFactura);
+}
+
+function actualizarCantIcon(cantidad) {
+  document.getElementById("quantity-value-icon-index").innerText = cantidad;
+}
+
+/* btnCalcularEdad.addEventListener('click',calculaEdad)
+
+function calculaEdad(name,apellido,edad) {
+    console.log(inpNombre.value);
+    console.log(inpApellido.value);    
+}
+ */

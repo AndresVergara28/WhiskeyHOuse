@@ -30,8 +30,8 @@
             </nav>
         </div>
 
-        <div class="cart-icon-container">
-            <img src="recursos/iconos/carrito.png" alt="Icono carrito de compra">
+        <div class="cart-icon-container" id="cart-aside-ope-product">
+            <img src="./recursos/iconos/carrito.png" alt="Icono carrito de compra">
             <p class="quantity-container" id="quantity-value-icon-index">0</p>
         </div>
 
@@ -87,6 +87,40 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+        <aside class="cart-container inactive cart-aside" id="cart-aside-product">
+            <div class="cart-header">
+                <h3>Carrito de Compras</h3>
+                <div class="cart-icon-container" id="cart-aside-cie-product">
+                    <img src="./recursos/iconos/angulo-derecho.png" alt="Icono angulo cierre">
+
+                </div>
+            </div>
+            <div class="products-section-container" id="carrito-de-compras">
+                <!-- <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="../recursos/imagenes/deluxe12años1000.png" alt="">
+                    </div>
+                    <div class="product-card-information-container">
+                        <div class="product-card-information">
+                            <h3 class="product-name">Bucanas</h3>
+                            <h3 class="product-second-name">Deluxe 12 años</h3>
+                            <h4 class="product-category">Whiskey</h4>
+                            <p class="product-volume">750ml</p>
+                            <p class="product-price">150000 COP</p>
+                        </div>
+                        <div class="product-card-modificar">
+                            <p class="restar">-</p>
+                            <p class="cantidad">X</p>
+                            <p class="sumar">+</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="total-display-container">
+                <p class="total-title">TOTAL</p>
+                <p class="total-valor" id="total_display">0 COP</p>
+            </div>
+        </aside>
         <section class="marketing-section">
             <div class="container top3-details-container">
                 <!-- BUCHANAS DEKUXE -->
@@ -210,7 +244,8 @@
     <script>
         AOS.init();
     </script>
-    <script src="js/main.js"></script>
+    
+    <script src="main.js"></script>
 </body>
 
 </html>
