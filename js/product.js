@@ -83,11 +83,19 @@ function addToContainerCart(e) {
       total: whiskey.price,
     };
     carritoCompras.push(itemAñadido);
-    Swal.fire(
-      "¡Añadido al Carrito!",
-      `${itemAñadido.name} ${itemAñadido.secondName} ${itemAñadido.volume}`,
-      "success"
-    );
+    Swal.fire({
+      position: "top-end",
+      title: "¡Item añadido!",
+      text: `${itemAñadido.name} ${itemAñadido.secondName} ${itemAñadido.volume}`,
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1500,
+      width: "40rem",
+      padding: "3em",
+      color: "#6c757d",
+      background: "#212529",
+    });
+
     renderizarEnCarrito(itemAñadido);
     localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
     const newTotalFactura = carritoCompras.reduce(
@@ -101,6 +109,19 @@ function addToContainerCart(e) {
     const position = getIndex(whiskey);
     carritoCompras[position].total += carritoCompras[position].price;
     carritoCompras[position].count++;
+    Swal.fire({
+      position: "top-end",
+      title: "¡Item añadido!",
+      text: `${carritoCompras[position].name} ${carritoCompras[position].secondName} ${carritoCompras[position].volume}`,
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1500,
+      width: "40rem",
+      padding: "3em",
+      color: "#6c757d",
+      background: "#212529",
+    });
+
     localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
     const newCantidad = carritoCompras[position].count;
     const newTotal = carritoCompras[position].total;
@@ -253,6 +274,33 @@ function reducirCantidad(e) {
     localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
 
     if (carritoCompras[position].total == 0) {
+      Swal.fire({
+        title: "¿Deseas remover el item?",
+        text: `${carritoCompras[position].name} ${carritoCompras[position].secondName} ${carritoCompras[position].volume}`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#212529",
+        cancelButtonColor: "#212529",
+
+        cancelButtonText:'Cancelar',
+        confirmButtonText: "continuar",
+        width: "40rem",
+        padding: "3em",
+        color: "#6c757d",
+        background: "#212529",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "¡Removido!",
+            icon: "success",
+            width: "40rem",
+            padding: "3em",
+            color: "#6c757d",
+            background: "#212529",
+          });
+        }
+      });
+
       const newTotalFactura = carritoCompras.reduce(
         (acumulador, el) => acumulador + el.total,
         0
