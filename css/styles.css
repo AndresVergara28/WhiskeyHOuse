@@ -124,15 +124,11 @@ header .cart-icon-container img {
   font-size: 1.6rem;
 }
 
-.top3-headings-container {
-  background-color: #000000;
-}
 .top3-headings-container .top3-subtitle {
   margin: 5rem 0rem;
   color: #6c757d;
-  font-size: 6rem;
+  font-size: 3.2rem;
   text-transform: uppercase;
-  font-weight: 350;
 }
 .top3-headings-container .top3-heading-container .top3-item .top3-img {
   width: 24rem;
@@ -637,16 +633,15 @@ footer .footer-bottom p {
   text-transform: capitalize;
   color: #6c757d;
 }
-.resumen-compras-container .payment-summary .contact-info h2 {
+.resumen-compras-container .payment-summary .form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.resumen-compras-container .payment-summary .form .contact-info h2 {
   font-size: 2.4rem;
 }
-.resumen-compras-container .payment-summary .contact-info form {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.resumen-compras-container .payment-summary .contact-info form label input {
+.resumen-compras-container .payment-summary .form .contact-info label input {
   min-width: 200px;
   border: #6c757d 1px solid;
   border-radius: 0.5rem;
@@ -654,33 +649,42 @@ footer .footer-bottom p {
   font-size: 1.28rem;
   font-size: 1.6rem;
 }
-.resumen-compras-container .payment-summary .contact-info form .email-label input {
+.resumen-compras-container .payment-summary .form .contact-info .email-label input {
+  margin-top: 0.5rem;
   width: 320px;
 }
-.resumen-compras-container .payment-summary .delivery-info h2 {
-  font-size: 2.4rem;
-}
-.resumen-compras-container .payment-summary .delivery-info form {
-  display: flex;
-  flex-wrap: wrap;
+.resumen-compras-container .payment-summary .form .delivery-info {
   gap: 1rem;
 }
-.resumen-compras-container .payment-summary .delivery-info form label input {
-  width: 300px;
-  border: #6c757d 1px solid;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 1.6rem;
-}
-.resumen-compras-container .payment-summary .payment-info h2 {
+.resumen-compras-container .payment-summary .form .delivery-info h2 {
   font-size: 2.4rem;
 }
-.resumen-compras-container .payment-summary .payment-info label input {
+.resumen-compras-container .payment-summary .form .delivery-info label input {
   width: 300px;
   border: #6c757d 1px solid;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 1.6rem;
+}
+.resumen-compras-container .payment-summary .form .payment-info h2 {
+  font-size: 2.4rem;
+}
+.resumen-compras-container .payment-summary .form .payment-info label {
+  display: flex;
+}
+.resumen-compras-container .payment-summary .form .payment-info label span {
+  font-size: 1.6rem;
+  margin-left: 1rem;
+}
+.resumen-compras-container .payment-summary .form .payment-info label input {
+  font-size: 4rem;
+}
+.resumen-compras-container .payment-summary .form .btns-info input {
+  border: #6c757d 1px solid;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.28rem;
+  font-weight: bolder;
 }
 .resumen-compras-container .purchase-summary {
   padding: 1rem 3rem;

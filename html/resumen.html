@@ -52,11 +52,18 @@
       <section class="row resumen-compras-container">
         <div class="col-lg-7 col-md-12 payment-summary">
           <h1>finalizar compra</h1>
-          <div class="contact-info">
-            <h2>Información de Contacto</h2>
-            <form action="">
+          <form action="" class="form">
+            <div class="contact-info">
+              <h2>Información de Contacto</h2>
               <label for="name">
-                <input type="text" name="name" id="name" placeholder="Nombre" />
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Nombre"
+                  autocomplete="cc-given-name"
+                  required
+                />
               </label>
               <label for="family-name">
                 <input
@@ -64,14 +71,18 @@
                   name="last-name"
                   id="last-name"
                   placeholder="Apellido"
+                  autocomplete="family-name"
+                  required
                 />
               </label>
               <label for="phone">
                 <input
-                  type="text"
+                  type="tel"
                   name="phone"
                   id="phone"
                   placeholder="+57 (320)-345-5678"
+                  autocomplete="tel"
+                  required
                 />
               </label>
               <label for="email" class="email-label">
@@ -80,20 +91,21 @@
                   name="email"
                   id="email"
                   placeholder="alguien123@ejemplo.com"
+                  autocomplete="email"
+                  required
                 />
               </label>
-            </form>
-          </div>
-
-          <div class="delivery-info">
-            <h2>Información de envío</h2>
-            <form>
+            </div>
+            <div class="delivery-info">
+              <h2>Información de envío</h2>
               <label for="departamento">
                 <input
                   type="departamento"
                   name="departamento"
                   id="departamento"
                   placeholder="Atlantico"
+                  autocomplete="country-name"
+                  required
                 />
               </label>
               <label for="address" class="direccion-envio">
@@ -104,25 +116,33 @@
                   placeholder="Cra 1 # 3-50"
                 />
               </label>
-            </form>
-          </div>
-
-          <div class="payment-info">
-            <h2>Método de pago</h2>
-            <form action="">
+            </div>
+            <div class="payment-info">
+              <h2>Método de pago</h2>
               <label for="">
-                <input type="text" />
+                <input type="radio" name="payment-type" id="creditCard"/>
+                <span>Credit Card</span>
               </label>
-            </form>
-          </div>
+              <label for="">
+                <input type="radio" name="payment-type" id="debitCard"/>
+                <span>Debit Card</span>
+              </label>
+            </div>
+
+            <div class="btns-info">
+              <input type="submit" value="PAGAR">
+              <input type="reset" value="LIMPIAR">
+            </div>
+          </form>
         </div>
+
         <aside class="col-lg-5 col-md-12 purchase-summary">
           <div class="cart-header">
             <h3>Resumen de articulos</h3>
           </div>
 
           <div class="products-section-container" id="carrito-de-compras">
-           <!--  <div class="product-card">
+            <!--  <div class="product-card">
               <div class="product-card-image">
                 <img src="../recursos/imagenes/deluxe12años1000.png" alt="" />
               </div>
@@ -151,7 +171,7 @@
                 id="coupon"
                 placeholder="Codigo de descuento"
               />
-              <button>USAR</button>
+              <button>APLICAR</button>
             </label>
           </div>
 
@@ -215,5 +235,6 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/finalizaCompra.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

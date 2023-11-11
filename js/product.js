@@ -268,55 +268,10 @@ function reducirCantidad(e) {
   const codigo = Number(e.target.id.slice(8));
   const item = carritoCompras.find((el) => el.codigo === codigo);
   const position = getIndex(item);
-  if (carritoCompras[position].count > 0) {
+  if (carritoCompras[position].count > 1) {
     carritoCompras[position].total -= carritoCompras[position].price;
     carritoCompras[position].count--;
     localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
-
-    if (carritoCompras[position].total == 0) {
-      Swal.fire({
-        title: "¿Deseas remover el item?",
-        text: `${carritoCompras[position].name} ${carritoCompras[position].secondName} ${carritoCompras[position].volume}`,
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#212529",
-        cancelButtonColor: "#212529",
-
-        cancelButtonText:'Cancelar',
-        confirmButtonText: "continuar",
-        width: "40rem",
-        padding: "3em",
-        color: "#6c757d",
-        background: "#212529",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            title: "¡Removido!",
-            icon: "success",
-            width: "40rem",
-            padding: "3em",
-            color: "#6c757d",
-            background: "#212529",
-          });
-        }
-      });
-
-      const newTotalFactura = carritoCompras.reduce(
-        (acumulador, el) => acumulador + el.total,
-        0
-      );
-      const newQuantity = carritoCompras[position].count;
-      const newTotal = carritoCompras[position].total;
-      actualizarCant(newQuantity, newTotal, codigo);
-      actualizarTotal(newTotalFactura);
-      const contenedorInDOm = document.getElementById(`cont_id_${codigo}`);
-      contenedorInDOm.remove();
-      carritoCompras.splice(position, 1);
-      localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
-      const newCantIcon = carritoCompras.length;
-      actualizarCantIcon(newCantIcon);
-      return;
-    }
     const newQuantity = carritoCompras[position].count;
     const newTotal = carritoCompras[position].total;
     const newTotalFactura = carritoCompras.reduce(
@@ -325,5 +280,58 @@ function reducirCantidad(e) {
     );
     actualizarCant(newQuantity, newTotal, codigo);
     actualizarTotal(newTotalFactura);
+  } else if (carritoCompras[position].count === 1) {
+    Swal.fire({
+      title: "¿Deseas remover el item?",
+      text: `${carritoCompras[position].name} ${carritoCompras[position].secondName} ${carritoCompras[position].volume}`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#212529",
+      cancelButtonColor: "#212529",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Continuar",
+      width: "40rem",
+      padding: "3em",
+      color: "#6c757d",
+      background: "#212529",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "¡Removido!",
+          icon: "success",
+          width: "40rem",
+          padding: "3em",
+          color: "#6c757d",
+          background: "#212529",
+        });
+        carritoCompras[position].total -= carritoCompras[position].price;
+        carritoCompras[position].count--;
+        const newTotalFactura = carritoCompras.reduce(
+          (acumulador, el) => acumulador + el.total,
+          0
+        );
+        const newQuantity = carritoCompras[position].count;
+        const newTotal = carritoCompras[position].total;
+        actualizarCant(newQuantity, newTotal, codigo);
+        actualizarTotal(newTotalFactura);
+        const contenedorInDOm = document.getElementById(`cont_id_${codigo}`);
+        contenedorInDOm.remove();
+        carritoCompras.splice(position, 1);
+        localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
+        const newCantIcon = carritoCompras.length;
+        actualizarCantIcon(newCantIcon);
+        return;
+      } else {
+        Swal.fire({
+          title: "Item NO removido",
+          text: `${carritoCompras[position].name} ${carritoCompras[position].secondName} ${carritoCompras[position].volume}`,
+          icon: "success",
+          width: "40rem",
+          padding: "3em",
+          color: "#6c757d",
+          background: "#212529",
+        });
+      }
+    });
   }
 }

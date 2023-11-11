@@ -15,16 +15,16 @@
       color: $color-gris-secundario;
     }
 
-    .contact-info {
-      h2 {
-        font-size: $subtitulo;
-      }
-      form {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        label {
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      .contact-info {
+        h2 {
+          font-size: $subtitulo;
+        }
+
+        label {     
           input {
             min-width: 200px;
             border: $color-gris-secundario 1px solid;
@@ -34,22 +34,17 @@
             font-size: $parrafo;
           }
         }
-
         .email-label {
           input {
+            margin-top: 0.5rem;
             width: 320px;
           }
         }
       }
-    }
-
-    .delivery-info {
-      h2 {
-        font-size: $subtitulo;
-      }
-      form {
-        display: flex;
-        flex-wrap: wrap;
+      .delivery-info {
+        h2 {
+          font-size: $subtitulo;
+        }
         gap: 1rem;
         label {
           input {
@@ -61,19 +56,29 @@
           }
         }
       }
-    }
-
-    .payment-info {
-      h2 {
-        font-size: $subtitulo;
+      .payment-info {
+        h2 {
+          font-size: $subtitulo;
+        }
+        label {
+          display: flex;
+          span{
+            font-size: $parrafo;
+            margin-left: 1rem;
+          }
+          input {
+            font-size: $hipertitulo;
+          }
+        }
       }
-      label {
-        input {
-          width: 300px;
+      .btns-info{
+        input{
           border: $color-gris-secundario 1px solid;
           border-radius: 0.5rem;
           padding: 0.5rem 1rem;
-          font-size: $parrafo;
+          font-size: $parrafo * 0.8;
+          font-weight: bolder;
+
         }
       }
     }
@@ -258,9 +263,9 @@
   }
 }
 
-@media  screen and (max-width: $large) {
-  .resumen-compras-container{
-    .payment-summary{
+@media screen and (max-width: $large) {
+  .resumen-compras-container {
+    .payment-summary {
       order: 2;
     }
   }
