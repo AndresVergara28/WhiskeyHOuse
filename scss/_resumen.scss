@@ -1,4 +1,5 @@
 .resumen-compras-container {
+  height: 80vh;
   display: flex;
 
   .payment-summary {
@@ -24,7 +25,7 @@
           font-size: $subtitulo;
         }
 
-        label {     
+        label {
           input {
             min-width: 200px;
             border: $color-gris-secundario 1px solid;
@@ -62,7 +63,7 @@
         }
         label {
           display: flex;
-          span{
+          span {
             font-size: $parrafo;
             margin-left: 1rem;
           }
@@ -71,23 +72,24 @@
           }
         }
       }
-      .btns-info{
-        input{
+      .btns-info {
+        input {
           border: $color-gris-secundario 1px solid;
           border-radius: 0.5rem;
           padding: 0.5rem 1rem;
           font-size: $parrafo * 0.8;
           font-weight: bolder;
-
         }
       }
     }
   }
 
   .purchase-summary {
+    max-height: 80vh;
     padding: 1rem 3rem;
     background-color: $color-black;
-    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
     .cart-header {
       text-align: start;
 
@@ -100,6 +102,7 @@
     }
 
     .products-section-container {
+      overflow: auto;
       padding-bottom: 1rem;
       .product-card {
         display: flex;
@@ -265,6 +268,7 @@
 
 @media screen and (max-width: $large) {
   .resumen-compras-container {
+    height: auto;
     .payment-summary {
       order: 2;
     }

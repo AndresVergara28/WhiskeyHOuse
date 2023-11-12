@@ -7,7 +7,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  /*   border: 1px solid red; */
+  /*  border: 1px solid red; */
 }
 
 html {
@@ -20,6 +20,7 @@ body {
 }
 
 header {
+  max-height: 20vh;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -320,7 +321,7 @@ footer .footer-bottom p {
   border: 1px solid #6c757d;
   background-color: black;
   width: 35vw;
-  min-height: 100vh;
+  height: 100vh;
   padding: 1.5rem 2.5rem;
   z-index: 2;
   display: flex;
@@ -345,6 +346,7 @@ footer .footer-bottom p {
   width: 2rem;
 }
 .cart-container .products-section-container {
+  overflow: auto;
   padding-bottom: 1rem;
 }
 .cart-container .products-section-container .product-card {
@@ -494,7 +496,6 @@ footer .footer-bottom p {
 }
 .content-products {
   background-color: #212529;
-  width: 100vw;
   padding: 1rem;
 }
 .content-products h1 {
@@ -618,6 +619,7 @@ footer .footer-bottom p {
   }
 }
 .resumen-compras-container {
+  height: 80vh;
   display: flex;
 }
 .resumen-compras-container .payment-summary {
@@ -687,9 +689,11 @@ footer .footer-bottom p {
   font-weight: bolder;
 }
 .resumen-compras-container .purchase-summary {
+  max-height: 80vh;
   padding: 1rem 3rem;
   background-color: #000000;
-  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
 }
 .resumen-compras-container .purchase-summary .cart-header {
   text-align: start;
@@ -701,6 +705,7 @@ footer .footer-bottom p {
   color: #6c757d;
 }
 .resumen-compras-container .purchase-summary .products-section-container {
+  overflow: auto;
   padding-bottom: 1rem;
 }
 .resumen-compras-container .purchase-summary .products-section-container .product-card {
@@ -849,6 +854,9 @@ footer .footer-bottom p {
 }
 
 @media screen and (max-width: 992px) {
+  .resumen-compras-container {
+    height: auto;
+  }
   .resumen-compras-container .payment-summary {
     order: 2;
   }

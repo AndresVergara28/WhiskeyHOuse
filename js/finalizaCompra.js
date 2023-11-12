@@ -4,7 +4,7 @@ const productCardContainerCart = document.querySelector("#carrito-de-compras");
 const form = document.querySelector(".form");
 form.addEventListener("submit", mandarPedido);
 
-const carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
+let carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
 const pedidos = [];
 quanValueIcoIndex.innerText = carritoCompras.length;
 
@@ -232,7 +232,6 @@ function mandarPedido(e) {
   const swalWithBootstrapButtons = Swal.mixin({
     confirmButtonColor: "#212529",
     cancelButtonColor: "#212529",
-    
   });
 
   swalWithBootstrapButtons
@@ -264,26 +263,37 @@ function mandarPedido(e) {
             0
           ),
         });
-
-        swalWithBootstrapButtons.fire({
-          title: "¡Pedido Montado!",
-          text: "Pronto recibiras la factura de tu compra a tu correo",
-          icon: "success",
-          padding: "3em",
-          width: "40rem",
-          color: "#6c757d",
-          background: "#212529",
-        })
-        .then((result)=>{
-          if (result.isConfirmed) {
-            setTimeout(()=>{
-              document.querySelector('.form').reset();
-    
-            },1500);
-            
-          }
-        });
-
+        swalWithBootstrapButtons
+          .fire({
+            title: "¡Pedido Montado!",
+            text: "Pronto recibiras la factura de tu compra a tu correo",
+            icon: "success",
+            padding: "3em",
+            width: "40rem",
+            color: "#6c757d",
+            background: "#212529",
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              setTimeout(() => {
+                for (const el of carritoCompras) {
+                  const contenedorInDOm = document.getElementById(
+                    `cont_id_${el.codigo}`
+                  );
+                  contenedorInDOm.remove();
+                }
+                localStorage.removeItem("carritoCompras");
+                carritoCompras = [];
+                quanValueIcoIndex.innerText = carritoCompras.length;
+                totalDisplay.innerText =
+                  carritoCompras.reduce(
+                    (acumulador, el) => acumulador + el.total,
+                    0
+                  ) + " COP";
+                document.querySelector(".form").reset();
+              }, 1000);
+            }
+          });
       } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel
