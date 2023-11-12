@@ -1,0 +1,111 @@
+[
+  {
+    "codigo": 0,
+    "name": "Buchanas",
+    "secondName": "Deluxe 12 años",
+    "category": "Whiskey",
+    "volume": "750 ml",
+    "price": 142500,
+    "image": "../recursos/imagenes/deluxe12años750.png"
+  },
+  {
+    "codigo": 1,
+    "name": "Buchanas",
+    "secondName": "Deluxe Master",
+    "category": "Whiskey",
+    "volume": "750 ml",
+    "price": 167700,
+    "image": "../recursos/imagenes/deluxeMaster750.png"
+  },
+  {
+    "codigo": 2,
+    "name": "Buchanas",
+    "secondName": "Two souls",
+    "category": "Whiskey",
+    "volume": "750 ml",
+    "price": 176800,
+    "image": "../recursos/imagenes/deluxeTwoSoul750.png"
+  },
+  {
+    "codigo": 3,
+    "name": "Buchanas",
+    "secondName": "Deluxe 12 años",
+    "category": "Whiskey",
+    "volume": "1 Litro",
+    "price": 211400,
+    "image": "../recursos/imagenes/deluxe12años1000.png"
+  },
+  {
+    "codigo": 4,
+    "name": "Buchanas",
+    "secondName": "Deluxe Master",
+    "category": "Whiskey",
+    "volume": "1 Litro",
+    "price": 181500,
+    "image": "../recursos/imagenes/deluxeMaster1000.png"
+  },
+  {
+    "codigo": 5,
+    "name": "Buchanas",
+    "secondName": "Special Reserve",
+    "category": "Whiskey",
+    "volume": "750 ml",
+    "price": 345100,
+    "image": "../recursos/imagenes/specialReserve750.png"
+  },
+  { 
+    "codigo": 6,
+    "name": "Buchanas",
+    "secondName": "Deluxe 12 años",
+    "category": "Whiskey",
+    "volume": "375 ml",
+    "price": 82000,
+    "image": "../recursos/imagenes/deluxe12años375.png"
+  },
+  { 
+    "codigo": 7,
+    "name": "Buchanas",
+    "secondName": "Red Seal",
+    "category": "Whiskey",
+    "volume": "750 ml",
+    "price": 800000,
+    "image": "../recursos/imagenes/redSealBlended750.png"
+  },
+  { 
+    "codigo": 8,
+    "name": "Jhonnie Walker",
+    "secondName": "Red Label",
+    "category": "Whiskey",
+    "volume": "750 ml",
+    "price": 70100,
+    "image": "../recursos/imagenes/redLabel750.png"
+  },
+  { 
+    "codigo": 9,
+    "name": "Jhonnie Walker",
+    "secondName": "Black Label",
+    "category": "Whiskey",
+    "volume": "750 ml",
+    "price": 145000,
+    "image": "../recursos/imagenes/blackLabel750.png"
+  },
+  { 
+    "codigo": 10,
+    "name": "Jhonnie Walker",
+    "secondName": "Blue Label",
+    "category": "Whiskey",
+    "volume": "750 ml",
+    "price": 1098900,
+    "image": "../recursos/imagenes/blueLabel750.png"
+  },
+  { 
+    "codigo": 11,
+    "name": "Jhonnie Walker",
+    "secondName": "Gold Label",
+    "category": "Whiskey",
+    "volume": "750 ml",
+    "price": 237000,
+    "image": "../recursos/imagenes/goldLabel750.png"
+  }
+
+]

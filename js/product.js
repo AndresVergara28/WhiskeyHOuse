@@ -2,34 +2,49 @@ const quanValueIcoIndex = document.getElementById("quantity-value-icon-index");
 const cartAsideCom = document.getElementById("cart-aside-component");
 const cartAsideApe = document.getElementById("cart-aside-ope");
 const cartAsideCie = document.getElementById("cart-aside-cie");
+const productCardContainerList = document.querySelector(
+  ".products-section-container"
+);
+const productCardContainerCart = document.querySelector("#carrito-de-compras");
+const totalDisplay = document.querySelector("#total_display");
 
 cartAsideApe.addEventListener("click", toggleCartAsideProduct);
 cartAsideCie.addEventListener("click", toggleCartAsideProduct);
 
-for (const whiskey of whiskeys) {
-  const productCard = document.createElement("div");
-  productCard.classList.add("product-card");
-  productCard.innerHTML = `
-                <div class="product-card-image">
-                        <img src=${whiskey.image} alt="Imagen referencia de ${whiskey.category}" class="product-image">
-                </div>
-                <div class="product-card-information">
-                        <h3 class="product-name">${whiskey.name}</h3>
-                        <h3 class="product-second-name">${whiskey.secondName}</h3>
-                        <h4 class="product-category">${whiskey.category}</h4>
-                        <p class="product-volume">${whiskey.volume}</p>
-                        <p class="product-price">${whiskey.price} COP</p>
-                </div>           
-                `;
-  const addToCartImg = document.createElement("img");
-  addToCartImg.setAttribute("src", "../recursos/iconos/carritoMas.png");
-  addToCartImg.setAttribute("id", `${whiskey.codigo}`);
-  addToCartImg.classList.add("add-to-card-button");
-  addToCartImg.addEventListener("click", addToContainerCart);
-  productCardContainerList.appendChild(productCard);
-  productCard.appendChild(addToCartImg);
-}
 
+const whiskeys = []; 
+fetch ('../dataProductos.json')
+.then((response) => response.json())
+.then((json) => {
+  json.forEach( (whiskey) => {
+    whiskeys.push(whiskey)
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.innerHTML = `
+                  <div class="product-card-image">
+                          <img src=${whiskey.image} alt="Imagen referencia de ${whiskey.category}" class="product-image">
+                  </div>
+                  <div class="product-card-information">
+                          <h3 class="product-name">${whiskey.name}</h3>
+                          <h3 class="product-second-name">${whiskey.secondName}</h3>
+                          <h4 class="product-category">${whiskey.category}</h4>
+                          <p class="product-volume">${whiskey.volume}</p>
+                          <p class="product-price">${whiskey.price} COP</p>
+                  </div>           
+                  `;
+    const addToCartImg = document.createElement("img");
+    addToCartImg.setAttribute("src", "../recursos/iconos/carritoMas.png");
+    addToCartImg.setAttribute("id", `${whiskey.codigo}`);
+    addToCartImg.classList.add("add-to-card-button");
+    addToCartImg.addEventListener("click", addToContainerCart);
+    productCardContainerList.appendChild(productCard);
+    productCard.appendChild(addToCartImg);
+    
+  });
+});
+
+
+const carritoCompras =JSON.parse(localStorage.getItem('carritoCompras')) || [];
 for (let index = 0; index < carritoCompras.length; index++) {
   const product = carritoCompras[index];
   const newCantIcon = carritoCompras.length;
@@ -84,7 +99,7 @@ function addToContainerCart(e) {
     };
     carritoCompras.push(itemAñadido);
     Swal.fire({
-      position: "top-end",
+      position: "center",
       title: "¡Item añadido!",
       text: `${itemAñadido.name} ${itemAñadido.secondName} ${itemAñadido.volume}`,
       icon: "success",
