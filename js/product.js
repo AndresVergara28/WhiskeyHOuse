@@ -105,7 +105,6 @@ function addToContainerCart(e) {
       icon: "success",
       showConfirmButton: false,
       timer: 1500,
-      width: "40rem",
       padding: "3em",
       color: "#6c757d",
       background: "#212529",
@@ -125,13 +124,12 @@ function addToContainerCart(e) {
     carritoCompras[position].total += carritoCompras[position].price;
     carritoCompras[position].count++;
     Swal.fire({
-      position: "top-end",
+      position: "center",
       title: "¡Item añadido!",
       text: `${carritoCompras[position].name} ${carritoCompras[position].secondName} ${carritoCompras[position].volume}`,
       icon: "success",
       showConfirmButton: false,
       timer: 1500,
-      width: "40rem",
       padding: "3em",
       color: "#6c757d",
       background: "#212529",

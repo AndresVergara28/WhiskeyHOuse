@@ -1,9 +1,13 @@
 const quanValueIcoIndex = document.getElementById("quantity-value-icon-index");
 const totalDisplay = document.querySelector("#total_display");
 const productCardContainerCart = document.querySelector("#carrito-de-compras");
+const form = document.querySelector(".form");
+form.addEventListener("submit", mandarPedido);
 
 const carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
+const pedidos = [];
 quanValueIcoIndex.innerText = carritoCompras.length;
+
 totalDisplay.innerText =
   carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0) + " COP";
 
@@ -19,12 +23,14 @@ function getIndex(el) {
     }
   }
 }
+
 function actualizarCant(quantity, total, codigo) {
   const quantityOut = document.getElementById(`quantity_product_${codigo}`);
   const totalOut = document.getElementById(`total_product_${codigo}`);
   quantityOut.innerText = quantity;
   totalOut.innerText = total + " COP";
 }
+
 function actualizarTotal(valor) {
   totalDisplay.innerText = valor + " COP";
 }
@@ -195,6 +201,7 @@ function reducirCantidad(e) {
     });
   }
 }
+
 function agregarCantidad(e) {
   e.preventDefault();
   const codigo = Number(e.target.id.slice(8));
@@ -217,4 +224,79 @@ function agregarCantidad(e) {
 
 function actualizarCantIcon(cantidad) {
   document.getElementById("quantity-value-icon-index").innerText = cantidad;
+}
+
+function mandarPedido(e) {
+  e.preventDefault();
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    confirmButtonColor: "#212529",
+    cancelButtonColor: "#212529",
+    
+  });
+
+  swalWithBootstrapButtons
+    .fire({
+      title: "¿Deseas continuar con el pedido?",
+      icon: "warning",
+      showCancelButton: true,
+      reverseButtons: true,
+      confirmButtonText: "Si, continuar!",
+      cancelButtonText: "No, cancelar!",
+      padding: "3em",
+      width: "40rem",
+      color: "#6c757d",
+      background: "#212529",
+    })
+    .then((result) => {
+      if (result.isConfirmed) {
+        pedidos.push({
+          nombre: document.querySelector("#name").value,
+          apellido: document.querySelector("#last-name").value,
+          telefono: parseInt(document.querySelector("#phone").value),
+          correoElectronico: document.querySelector("#email").value,
+          departamento: document.querySelector("#departamento").value,
+          creditCard: document.querySelector("#creditCard").checked,
+          debitCard: document.querySelector("#debitCard").checked,
+          articulos: carritoCompras,
+          total: carritoCompras.reduce(
+            (acumulador, el) => acumulador + el.total,
+            0
+          ),
+        });
+
+        swalWithBootstrapButtons.fire({
+          title: "¡Pedido Montado!",
+          text: "Pronto recibiras la factura de tu compra a tu correo",
+          icon: "success",
+          padding: "3em",
+          width: "40rem",
+          color: "#6c757d",
+          background: "#212529",
+        })
+        .then((result)=>{
+          if (result.isConfirmed) {
+            setTimeout(()=>{
+              document.querySelector('.form').reset();
+    
+            },1500);
+            
+          }
+        });
+
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire({
+          title: "Cancelado",
+          text: "Revisa bien tu pedido antes de confirmar",
+          icon: "error",
+          padding: "3em",
+          width: "40rem",
+          color: "#6c757d",
+          background: "#212529",
+        });
+      }
+    });
 }
